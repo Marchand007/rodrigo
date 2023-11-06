@@ -4,5 +4,5 @@ module.exports = {
     port: process.env.DB_PORT,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
-    sslmode: require
+    ssl: true
 };
