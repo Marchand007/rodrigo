@@ -20,7 +20,6 @@ async function createServiceError(response) {
     return new ServiceError(response.status, await getResponseMessage(response));
 }
 
-
 ///***RECETTES***///
 
 const convertToRecette = jsonRecette => {
@@ -37,7 +36,7 @@ const convertToRecette = jsonRecette => {
 };
 
 export async function fetchRecettes() {
-    const response = await fetch('/api/recettes');
+    const response = await fetch('/rodrigo-rodrigo-backend/recettes');
 
     if (response.ok) {
         const respJson = await response.json();
@@ -48,7 +47,7 @@ export async function fetchRecettes() {
 }
 
 export async function fetchRecette(recetteId) {
-    const response = await fetch(`/api/recettes/${recetteId}`);
+    const response = await fetch(`/rodrigo-rodrigo-backend/recettes/${recetteId}`);
 
     if (response.ok) {
         return convertToRecette(await response.json());
@@ -58,7 +57,7 @@ export async function fetchRecette(recetteId) {
 };
 
 export async function updateRecette(recette) {
-    const response = await fetch(`/api/recettes/${recette.id}`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/recettes/${recette.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -74,7 +73,7 @@ export async function updateRecette(recette) {
 }
 
 export async function deleteRecetteById(recetteId) {
-    const response = await fetch(`/api/recettes/${recetteId}`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/recettes/${recetteId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -89,7 +88,7 @@ export async function deleteRecetteById(recetteId) {
 }
 
 export async function createRecette(recette) {
-    const response = await fetch(`/api/recettes`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/recettes`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -106,7 +105,7 @@ export async function createRecette(recette) {
 }
 
 export async function updateRecetteImage(recetteId, formData) {
-    const response = await fetch(`/api/recettes/${recetteId}/image`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/recettes/${recetteId}/image`, {
         method: "POST",
         headers: {
             ...session.getAuthHeaders()
@@ -124,7 +123,7 @@ export async function updateRecetteImage(recetteId, formData) {
 ///***ETAPES***///
 
 export async function fetchEtapesByRecetteId(recetteId) {
-    const response = await fetch(`/api/etapes/${recetteId}`);
+    const response = await fetch(`/rodrigo-rodrigo-backend/etapes/${recetteId}`);
 
     if (response.ok) {
         return await response.json();
@@ -134,7 +133,7 @@ export async function fetchEtapesByRecetteId(recetteId) {
 }
 
 export async function addEtape(etape) {
-    const response = await fetch(`/api/etapes`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/etapes`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -153,7 +152,7 @@ export async function addEtape(etape) {
 ///***INGREDIENTS***///
 
 export async function fetchIngredientsByRecetteId(recetteId) {
-    const response = await fetch(`/api/ingredients/${recetteId}`);
+    const response = await fetch(`/rodrigo-rodrigo-backend/ingredients/${recetteId}`);
 
     if (response.ok) {
         return await response.json();
@@ -163,7 +162,7 @@ export async function fetchIngredientsByRecetteId(recetteId) {
 }
 
 export async function addIngredient(ingredient) {
-    const response = await fetch(`/api/ingredients`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/ingredients`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -182,7 +181,7 @@ export async function addIngredient(ingredient) {
 ///***APPRECIATION***///
 
 export async function fetchAppreciationByRecetteId(recetteId) {
-    const response = await fetch(`/api/appreciation/${recetteId}`);
+    const response = await fetch(`/rodrigo-rodrigo-backend/appreciation/${recetteId}`);
 
     if (response.ok) {
         return await response.json();
@@ -193,7 +192,7 @@ export async function fetchAppreciationByRecetteId(recetteId) {
 
 export async function fetchAppreciationForUserByRecetteId(recetteId) {
     const user = session.user_email;
-    const response = await fetch(`/api/appreciation/${recetteId}/${user}`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/appreciation/${recetteId}/${user}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -209,7 +208,7 @@ export async function fetchAppreciationForUserByRecetteId(recetteId) {
 }
 
 export async function addAppreciationToRecipeId(appreciation) {
-    const response = await fetch(`/api/appreciation`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/appreciation`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -228,7 +227,7 @@ export async function addAppreciationToRecipeId(appreciation) {
 ///***COMMENTAIRES***///
 
 export async function fetchCommentairesByRecetteId(recetteId) {
-    const response = await fetch(`/api/comments/${recetteId}`);
+    const response = await fetch(`/rodrigo-rodrigo-backend/comments/${recetteId}`);
 
     if (response.ok) {
         return await response.json();
@@ -238,7 +237,7 @@ export async function fetchCommentairesByRecetteId(recetteId) {
 }
 
 export async function addCommentaireToRecipeId(commentaire) {
-    const response = await fetch(`/api/comments`, {
+    const response = await fetch(`/rodrigo-rodrigo-backend/comments`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

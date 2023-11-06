@@ -44,7 +44,7 @@ const session = reactive({
         this.clearCredentials();
     },
     async fetchUser() {
-        const response = await fetch("/api/login", {
+        const response = await fetch("/rodrigo-rodrigo-backend/login", {
             method: "GET",
             headers: {
                 ... this.getAuthHeaders()
@@ -75,7 +75,7 @@ const session = reactive({
         }
     },
     async createUserAccount(userAccountEmail, userFullName, password) {
-        const response = await fetch("/api/login", {
+        const response = await fetch("/rodrigo-rodrigo-backend/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

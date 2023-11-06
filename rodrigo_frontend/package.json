@@ -5,7 +5,7 @@
     "scripts": {
         "start": "vite --host",
         "dev": "vite",
-        "build": "vite build",
+        "build": "vite build ",
         "preview": "vite preview",
         "host": "vite --host"
     },
@@ -21,6 +21,7 @@
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.2.3",
+        "devcert": "^1.2.2",
         "dotenv": "^16.3.1",
         "vite": "^4.3.9"
     }
